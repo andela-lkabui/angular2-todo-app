@@ -1,14 +1,28 @@
 import {
+  beforeEach,
+  beforeEachProviders,
   describe,
+  xdescribe,
   ddescribe,
   expect,
   iit,
-  it
-} from '@angular/testing';
+  xit,
+  it,
+  inject
+} from '@angular/core/testing';
 import {Todo} from './todo';
 
 describe('Todo', () => {
   it('should create an instance', () => {
     expect(new Todo()).toBeTruthy();
+  });
+
+  it('should accept values in the constructor', () => {
+      let todo = new Todo({
+          title: 'hello',
+          complete: true
+      });
+      expect(todo.title).toEqual('hello');
+      expect(todo.complete).toEqual(true);
   });
 });
